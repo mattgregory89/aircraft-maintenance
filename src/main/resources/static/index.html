@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta CHARSET="UTF-8">
+    <meta name="viewport" content=" width=device-width, initial-scale=1.0">
+    <title>ACFT MX 12MANY</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Aircraft Maintenance Tracker</h1>
+    <h2>Aircraft</h2>
+    <div id="aircraft-list">
+
+    </div>
+
+    <h3>Add Aircraft</h3>
+
+    <form id="aircraft-form">
+        <input type="text" id="tail-number" placeholder="Tail Number" required>
+
+        <input type="text" id="model" placeholder="Model" required>
+
+        <button type="submit">Add Aircraft</button>
+    </form>
+
+    <h2>Maintenance Events</h2>
+    <h3>Add Maintenance Event</h3>
+
+    <form id="maintenance-form">
+        <input type="text" id="maintenance-description" placeholder="Description" required>
+
+        <input type="date" id="maintenance-date" required>
+
+        <button type="submit">Add Maintenance Event</button>
+    </form>
+    <h3 id="selected-aircraft"></h3>
+
+    <div id="maintenance-list">
+        <!-- JavaScript will put maintenance events here -->
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

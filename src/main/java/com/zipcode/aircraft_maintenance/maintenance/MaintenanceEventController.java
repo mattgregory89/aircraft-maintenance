@@ -1,5 +1,8 @@
 package com.zipcode.aircraft_maintenance.maintenance;
 
+import com.zipcode.aircraft_maintenance.aircraft.Aircraft;
+import com.zipcode.aircraft_maintenance.aircraft.AircraftRepository;
+
 import java.util.List;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,9 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class MaintenanceEventController {
 
     private final MaintenanceEventRepository maintenanceEventRepository;
+    private final AircraftRepository aircraftRepository;
 
-    public MaintenanceEventController(MaintenanceEventRepository maintenanceEventRepository) {
+    public MaintenanceEventController(
+            MaintenanceEventRepository maintenanceEventRepository,
+            AircraftRepository aircraftRepository) {
+
         this.maintenanceEventRepository = maintenanceEventRepository;
+        this.aircraftRepository = aircraftRepository;
     }
 
     @GetMapping
@@ -38,10 +46,17 @@ public class MaintenanceEventController {
             @PathVariable Long id,
             @RequestBody MaintenanceEvent maintenanceEvent) {
 
-        MaintenanceEvent existingEvent
-                = maintenanceEventRepository.findById(id).orElseThrow();
+        MaintenanceEvent existingEvent = maintenanceEventRepository.findById(id).orElseThrow();
 
-        existingEvent.setAircraftId(maintenanceEvent.getAircraftId());
+        if (maintenanceEvent.getAircraft() != null) {
+
+            Long aircraftId = maintenanceEvent.getAircraft().getId();
+
+            Aircraft aircraft = aircraftRepository.findById(aircraftId).orElseThrow();
+
+            existingEvent.setAircraft(aircraft);
+        }
+
         existingEvent.setDescription(maintenanceEvent.getDescription());
         existingEvent.setEventDate(maintenanceEvent.getEventDate());
 

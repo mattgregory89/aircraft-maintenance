@@ -1,0 +1,266 @@
+/* ==============================
+   AIRCRAFT MAINTENANCE TRACKER
+   ============================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-color: #0f172a;
+    color: #e2e8f0;
+
+    min-height: 100vh;
+}
+
+
+/* ==============================
+   MAIN TITLE
+   ============================== */
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 30px;
+
+    color: #f8fafc;
+    font-size: 36px;
+    letter-spacing: 1px;
+
+    border-bottom: 3px solid #38bdf8;
+    padding-bottom: 15px;
+}
+
+
+/* ==============================
+   SECTION HEADINGS
+   ============================== */
+
+h2 {
+    color: #38bdf8;
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    color: #cbd5e1;
+    margin-top: 20px;
+}
+
+
+/* ==============================
+   AIRCRAFT LIST
+   ============================== */
+
+#aircraft-list {
+    display: grid;
+    gap: 10px;
+    max-width: 800px;
+}
+
+#aircraft-list p {
+    margin: 0;
+    padding: 15px 18px;
+
+    background-color: #1e293b;
+
+    border: 1px solid #334155;
+    border-left: 5px solid #38bdf8;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#aircraft-list p:hover {
+    background-color: #334155;
+    transform: translateX(4px);
+}
+
+
+/* ==============================
+   FORMS
+   ============================== */
+
+form {
+    max-width: 800px;
+
+    background-color: #1e293b;
+
+    padding: 20px;
+
+    border: 1px solid #334155;
+    border-radius: 10px;
+
+    margin-bottom: 25px;
+}
+
+input {
+    padding: 11px 12px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+
+    background-color: #0f172a;
+    color: #f8fafc;
+
+    border: 1px solid #475569;
+    border-radius: 6px;
+
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #38bdf8;
+}
+
+input::placeholder {
+    color: #94a3b8;
+}
+
+
+/* ==============================
+   BUTTONS
+   ============================== */
+
+button {
+    padding: 8px 14px;
+    margin-left: 8px;
+
+    border: none;
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    background-color: #0284c7;
+    color: white;
+
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #0369a1;
+    transform: translateY(-1px);
+}
+
+
+/* Aircraft Edit button */
+
+#aircraft-list button:first-of-type {
+    background-color: #475569;
+}
+
+#aircraft-list button:first-of-type:hover {
+    background-color: #64748b;
+}
+
+
+/* Aircraft Delete button */
+
+#aircraft-list button:last-of-type {
+    background-color: #b91c1c;
+}
+
+#aircraft-list button:last-of-type:hover {
+    background-color: #dc2626;
+}
+
+
+/* ==============================
+   SELECTED AIRCRAFT
+   ============================== */
+
+#selected-aircraft {
+    max-width: 800px;
+
+    padding: 15px 18px;
+
+    background-color: #172554;
+
+    border-left: 5px solid #3b82f6;
+    border-radius: 6px;
+
+    color: #bfdbfe;
+
+    font-size: 20px;
+}
+
+
+/* ==============================
+   MAINTENANCE EVENTS
+   ============================== */
+
+#maintenance-list {
+    max-width: 800px;
+}
+
+#maintenance-list p {
+    background-color: #1e293b;
+
+    border: 1px solid #334155;
+    border-left: 5px solid #f59e0b;
+
+    padding: 14px 18px;
+    margin: 10px 0;
+
+    border-radius: 7px;
+}
+
+
+/* Maintenance Edit */
+
+#maintenance-list button:first-of-type {
+    background-color: #475569;
+}
+
+#maintenance-list button:first-of-type:hover {
+    background-color: #64748b;
+}
+
+
+/* Maintenance Delete */
+
+#maintenance-list button:last-of-type {
+    background-color: #b91c1c;
+}
+
+#maintenance-list button:last-of-type:hover {
+    background-color: #dc2626;
+}
+
+
+/* ==============================
+   MOBILE / SMALL SCREEN
+   ============================== */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    input {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    form button {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}
