@@ -10,13 +10,16 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.zipcode.aircraft_maintenance.maintenance.MaintenanceEvent;
 import com.zipcode.aircraft_maintenance.maintenance.MaintenanceEventRepository;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/aircraft")
 public class AircraftController {
+
 
     private final AircraftRepository aircraftRepository;
     private final MaintenanceEventRepository maintenanceEventRepository;
